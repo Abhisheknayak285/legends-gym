@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #09090b;
+    color: #e2e8f0;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden; 
+    transition: background-color 0.3s, color 0.3s;
+}
+.glass-panel {
+    background: rgba(18, 18, 20, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid #27272a;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+.pc-input {
+    background: #09090b;
+    border: 1px solid #27272a;
+    color: white;
+    transition: all 0.2s ease-in-out;
+    padding: 0.6rem 1rem;
+    border-radius: 6px; 
+    width: 100%;
+    font-size: 0.875rem;
+}
+.pc-input:focus {
+    outline: none;
+    border-color: #D4AF37;
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+    background: #121214;
+}
+.search-input { padding-left: 2.75rem !important; }
+select option { background-color: #121214; color: white; }
+input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; opacity: 0.6; transition: opacity 0.2s; }
+input[type="date"]::-webkit-calendar-picker-indicator:hover { opacity: 1; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+
+.fade-in { animation: fadeIn 0.3s ease-out forwards; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.toast-enter { animation: toastEnter 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+@keyframes toastEnter {
+    from { opacity: 0; transform: translate(-50%, -20px) scale(0.9); }
+    to { opacity: 1; transform: translate(-50%, 0) scale(1); }
+}
+
+.text-gold-gradient {
+    background: linear-gradient(135deg, #E6C27A 0%, #D4AF37 50%, #997A15 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.data-table th {
+    position: sticky; top: 0; background: #121214; z-index: 10;
+    white-space: nowrap; border-bottom: 1px solid #27272a;
+}
+.data-table td { white-space: nowrap; border-bottom: 1px solid #18181b; }
+.data-table tr { transition: background-color 0.1s ease; }
+.data-table tr:hover { background-color: rgba(255, 255, 255, 0.03); }
+
+.bg-login-image {
+    background-image: linear-gradient(135deg, rgba(5, 5, 5, 0.95) 0%, rgba(15, 20, 30, 0.85) 100%), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1920');
+    background-size: cover; background-position: center;
+}
+.logo-glow {
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.25);
+    animation: pulseGlow 3s infinite alternate;
+}
+@keyframes pulseGlow {
+    from { box-shadow: 0 0 30px rgba(212, 175, 55, 0.15); }
+    to { box-shadow: 0 0 60px rgba(212, 175, 55, 0.35); }
+}
+
+body.light-theme { background-color: #f3f4f6; color: #111827; }
+body.light-theme .glass-panel, body.light-theme .bg-\[\#121214\], body.light-theme .bg-\[\#09090b\] {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-color: #e5e7eb !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+    color: #111827 !important;
+}
+body.light-theme .pc-input { background: #ffffff !important; border-color: #d1d5db !important; color: #111827 !important; }
+body.light-theme .pc-input:focus { border-color: #D4AF37 !important; box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2) !important; }
+body.light-theme select option { background-color: #ffffff; color: #111827; }
+body.light-theme input[type="date"]::-webkit-calendar-picker-indicator { filter: none; }
+body.light-theme .text-white { color: #111827 !important; }
+body.light-theme .text-gray-200, body.light-theme .text-gray-300 { color: #374151 !important; }
+body.light-theme .text-gray-400, body.light-theme .text-gray-500 { color: #6b7280 !important; }
+body.light-theme .border-\[\#27272a\] { border-color: #e5e7eb !important; }
+body.light-theme .data-table th { background: #f9fafb !important; color: #4b5563 !important; }
+body.light-theme .data-table td { border-color: #f3f4f6 !important; }
+body.light-theme .data-table tr:hover { background-color: #f9fafb !important; }
+
+.spinner {
+    border: 2px solid rgba(255,255,255,0.1);
+    border-top: 2px solid #D4AF37;
+    border-radius: 50%;
+    width: 14px; height: 14px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
